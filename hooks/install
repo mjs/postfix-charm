@@ -1,17 +1,26 @@
 #!/usr/bin/python
 
-import setup
-setup.pre_install()
+import os
+import sys
 
-from charmhelpers.core import hookenv
+sys.path.insert(0, os.path.join(os.environ['CHARM_DIR'], 'lib'))
+
+from charmhelpers.core import (
+    hookenv,
+    host,
+)
+
+hooks = hookenv.Hooks()
+log = hookenv.log
+
+SERVICE = 'postfix'
 
 
+@hooks.hook('install')
 def install():
-    hookenv.log('Installing postfix')
-    # add steps for installing dependencies and packages here
-    # e.g.: from charmhelpers import fetch
-    #       fetch.apt_install(fetch.filter_installed_packages(['nginx']))
+    log('Installing postfix')
 
 
 if __name__ == "__main__":
-    install()
+    # execute a hook based on the name the program is called by
+    hooks.execute(sys.argv)
