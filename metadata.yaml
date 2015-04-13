@@ -1,6 +1,6 @@
 name: postfix
 summary: High-performance mail transport agent
-maintainer: John Weldon <John.Weldon@mbp-trusty>
+maintainer: John Weldon <johnweldon4@gmail.com>
 description: |
   Postfix is Wietse Venema's mail transport agent that started life as an
   alternative to the widely-used Sendmail program.  Postfix attempts to
@@ -9,16 +9,8 @@ description: |
   outside has a sendmail-ish flavor, but the inside is completely
   different.
 tags:
-  # Replace "misc" with one or more whitelisted tags from this list:
-  # https://juju.ubuntu.com/docs/authors-charm-metadata.html#charm-metadata
-  - misc
+  - network
 subordinate: false
 provides:
-  provides-relation:
-    interface: interface-name
-requires:
-  requires-relation:
-    interface: interface-name
-peers:
-  peer-relation:
-    interface: interface-name
+  mta:
+      interface: postfix
