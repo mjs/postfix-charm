@@ -11,6 +11,3 @@ description: |
 tags:
   - network
 subordinate: false
-provides:
-  mta:
-      interface: postfix
